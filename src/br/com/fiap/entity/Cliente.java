@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -22,7 +23,8 @@ public class Cliente implements Serializable {
 	private Integer id;
 	private String nome;
 	private String email;
-	@OneToMany(mappedBy="cliente", cascade=CascadeType.ALL)
+	
+	@ManyToOne(cascade=CascadeType.ALL)
 	private Endereco endereco;
 	private String telefone;
 	@OneToMany(mappedBy="cliente")
